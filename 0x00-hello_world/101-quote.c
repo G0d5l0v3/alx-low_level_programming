@@ -1,9 +1,6 @@
 #include <stdio.h>
 /**
- * main - outputs to string
- *
- * escription: Prints out "and that piece of art is useful..." without printf
- *
+ * prints and that piece of art is useful
  * Return: 1
  */
 int main(void)
