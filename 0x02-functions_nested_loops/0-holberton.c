@@ -1,20 +1,19 @@
 #include "holberton.h"
-
 /**
- * main - prit Holberton
+ * main - prints holberton with __putchar()
  *
- * Return: Always 0.
+ * Return: 0.
  */
 int main(void)
 {
-    char ch[] = "Holberton";
-    int i = 1;
+	char ch[] = "Holberton";
+	int i = 0;
 
-    while (i < 10)
-    {
-     _putchar (ch[i]);
-	     i++;
-    }
-    _putchar('\n');
-    return (0);
+	while (i < 9)
+	{
+		_putchar(ch[i]);
+		i++;
+	}
+	_putchar('\n');
+	return (0);
 }
