@@ -28,4 +28,5 @@ unsigned int _strspn(char *s, char *accept)
 		if (checker == 0)
 			return (success);
 	}
-	return (succe
+	return (success);
+}
