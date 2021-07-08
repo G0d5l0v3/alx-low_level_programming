@@ -1,62 +1,48 @@
 #include "holberton.h"
-
+int lengthc(char *s);
+int palindrome(char str[], int st, int end);
 /**
- * is_palindrome -  sss
- * @r: string
- * Return: return something
+ * is_palindrome - Entry Point
+ * @s: input
+ * Return: 0
  */
-
-int is_palindrome(char *r)
+int is_palindrome(char *s)
 {
+	int len;
 
-	int i, size, add;
+	len = lengthc(s);
 
-	i = 0;
-	add = 0;
-
-	size = _strlen_recursion(r);
-
-	add = (size % 2 != 0) ? 2 : 1;
-
-	return (evaluate(r, i, size - 1, add));
+	if (len == 0)
+		return (1);
+	return (palindrome(s, 0, len - 1));
 }
 
 /**
- * evaluate - compare
- * @i: i
- * @size: size
- * @s: string
- * @add: addition depending if n is odd or even
- * Return: return value
+ * lengthc - finds the length count
+ * @s: input
+ * Return: length size
  */
-int evaluate(char *s, int i, int size, int add)
+int lengthc(char *s)
 {
-
-	if (i + add == size  && s[i] == s[size])
-	{
-		return (1);
-	}
-
-	else if (s[i] == s[size])
-	{
-		return (evaluate(s, i + 1, size - 1, add));
-	}
-
+	if (*s != '\0')
+		return (1 + lengthc(s + 1));
 	return (0);
 }
 
 /**
- * _strlen_recursion - legth of a string
- * @s: string
- * Return: return legth
+ * palindrome - checks if start and end of string matches
+ * @str: string
+ * @st: start of string 0
+ * @end: end of string from is_palindrome, from lengthc
+ * Return: if str is a palindrome
  */
-
-int _strlen_recursion(char *s)
+int palindrome(char str[], int st, int end)
 {
-	/*Base condition*/
-	if (!*s)
+	if (st >= end)
+		return (1);
+	if (str[st] != str[end])
 		return (0);
-
-	else
-		return (1 + _strlen_recursion(s + 1)); /*Sum 1*/
+	if (st <= end || st < end + 1)
+		return (palindrome(str, st + 1, end - 1));
+	return (1);
 }
